@@ -37,9 +37,10 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/preview"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="serif-monospace"
         android:gravity="center_horizontal"
         android:text="Preview"
@@ -48,12 +49,50 @@
 
         />
 
+    <TextView
+        android:id="@+id/select"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="First Choose Image from Gallery "
+        android:fontFamily="serif-monospace"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/btn_logut_bg"
+        />
+
     <ImageView
         android:id="@+id/imgView"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/imagename"
+        android:layout_marginTop="20dp"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:hint=" Name the image name"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/btn_logut_bg"
+        android:fontFamily="serif-monospace"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/showupload"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Show Uploads"
+        android:textStyle="bold"
+        android:textColor="@color/btn_login"
+        android:textSize="20sp"
+        android:fontFamily="serif-monospace"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        />
 
 
 </LinearLayout>
