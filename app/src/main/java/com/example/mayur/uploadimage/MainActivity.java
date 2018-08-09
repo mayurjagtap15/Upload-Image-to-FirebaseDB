@@ -1,5 +1,6 @@
 package com.example.mayur.uploadimage;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -11,6 +12,9 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -20,8 +24,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -37,12 +43,12 @@ public class MainActivity extends AppCompatActivity {
     Button chooseImg, uploadImg;
     EditText imageName;
     TextView showUploads,preview,selectImage;
-    ImageView imgView;
+    ImageView imgView,signOut;
     int PICK_IMAGE_REQUEST = 111;
+    private FirebaseAuth auth;
     Uri filePath;
     ProgressDialog pd;
 
-    ProgressBar mProgress;
 
     private StorageReference mStorageRef;
 
@@ -57,10 +63,13 @@ public class MainActivity extends AppCompatActivity {
    /* FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReferenceFromUrl("gs://uploadimage-bcb40.appspot.com");    //change the url according to your firebase app
 */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        auth=FirebaseAuth.getInstance();
 
         chooseImg = (Button) findViewById(R.id.chooseImg);
         uploadImg = (Button) findViewById(R.id.uploadImg);
@@ -69,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
         showUploads = findViewById(R.id.showupload);
         selectImage=findViewById(R.id.select);
         preview=findViewById(R.id.preview);
+
+        signOut = findViewById(R.id.btnsignut);
+
 
         imageName.setVisibility(View.GONE);
         preview.setVisibility(View.GONE);
@@ -123,6 +135,16 @@ public class MainActivity extends AppCompatActivity {
                     uploadFile();
                 }
 
+            }
+        });
+
+        signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    auth.signOut();
+                    Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                    startActivity(intent);
             }
         });
 
@@ -232,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
 
-
-
         }
+
+
 }
