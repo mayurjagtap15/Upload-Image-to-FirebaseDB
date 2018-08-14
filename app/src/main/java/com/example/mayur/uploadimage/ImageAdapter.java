@@ -105,7 +105,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             menu.setHeaderTitle("Select Action");
             MenuItem Download = menu.add(Menu.NONE,1,1,"Download");
-            MenuItem Delete = menu.add(Menu.NONE,2,2,"Delete Image");
+            MenuItem Delete = menu.add(Menu.NONE,2,2,"Delete");
 
             Download.setOnMenuItemClickListener(this);
             Delete.setOnMenuItemClickListener(this);
@@ -123,11 +123,11 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                     switch (item.getItemId()){
 
                         case 1 :
-                            mListener.onDelete(position);
+                            mListener.onDownload(position);
                             return true;
 
                         case 2 :
-                            mListener.onDownload(position);
+                            mListener.onDelete(position);
                             return true;
                     }
                 }

@@ -61,7 +61,7 @@
             />
 
         <Button
-            android:id="@+id/register"
+            android:id="@+id/btn_login"
             android:layout_margin="15dp"
             android:layout_width="match_parent"
             android:layout_height="35dp"
@@ -70,14 +70,41 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:fontFamily="serif-monospace"
+            android:textSize="18sp"
+            />
+
+        <Button
+            android:id="@+id/btn_reset_password"
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:text="Forgot your Password ?"
+            android:background="@color/white"
+            android:textColor="@color/btn_login"
+            android:textStyle="bold"
+            android:fontFamily="serif-monospace"
             android:textSize="17sp"
             />
 
-        <TextView
-            android:id="@+id/forgotpwd"
-            android:layout_margin="10dp"
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_margin="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="25dp"
+            android:text="Get registered in MyCloud now"
+            android:background="@color/white"
+            android:textColor="@color/bg_main"
+            android:textStyle="bold"
+            android:fontFamily="serif-monospace"
+            android:textSize="17sp"
+            />
+
+       <!-- <Button
+            android:id="@+id/btn_reset_password"
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
             android:text="Forgot your Password ?"
             android:textAlignment="center"
             android:fontFamily="serif-monospace"
@@ -86,27 +113,21 @@
             android:textColor="@color/btn_login"
             />
 
-        <TextView
-            android:id="@+id/getreg"
+        <Button
+            android:id="@+id/btn_signup"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
+            android:background="@color/white"
             android:text="Get registered in MyCloud now"
             android:fontFamily="serif-monospace"
             android:textAlignment="center"
             android:textColor="@color/bg_main"
             android:textStyle="bold"
             android:textSize="15sp"
-            />
+            />-->
 
     </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center|bottom"
-        android:layout_marginBottom="20dp"
-        android:visibility="gone" />
 
 </RelativeLayout>

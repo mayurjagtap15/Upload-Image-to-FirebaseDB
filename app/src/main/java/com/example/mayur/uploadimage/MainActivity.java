@@ -28,6 +28,8 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -58,11 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
     private StorageTask mUploadTask;
 
-
-    //creating reference to firebase storage
-   /* FirebaseStorage storage = FirebaseStorage.getInstance();
-    StorageReference storageRef = storage.getReferenceFromUrl("gs://uploadimage-bcb40.appspot.com");    //change the url according to your firebase app
-*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
                     auth.signOut();
                     Intent intent = new Intent(MainActivity.this,LoginActivity.class);
                     startActivity(intent);
+                    finish();
             }
         });
 
@@ -198,11 +196,13 @@ public class MainActivity extends AppCompatActivity {
                             pd.dismiss();
                             Toast.makeText(MainActivity.this, "Upload successfully", Toast.LENGTH_SHORT).show();
                             Upload upload = new Upload(imageName.getText().toString().trim(),
+
                                     taskSnapshot.getDownloadUrl().toString());
+
                             String uploadId = mDatabaseRef.push().getKey();
+
                             mDatabaseRef.child(uploadId).setValue(upload);
 
-                            imageName.setText("");
                             imgView.setVisibility(View.GONE);
                             selectImage.setVisibility(View.INVISIBLE);
                             preview.setVisibility(View.GONE);
